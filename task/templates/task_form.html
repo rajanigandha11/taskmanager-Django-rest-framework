@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if task.id %}Update{% else %}Create{% endif %} Task</title>
+</head>
+<body>
+    <h1>{% if task.id %}Update{% else %}Create{% endif %} Task</h1>
+
+    <form method="post" action="{% if task.id %}{% url 'task-update' task.id %}{% else %}{% url 'task-create' %}{% endif %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">{% if task.id %}Update{% else %}Create{% endif %} Task</button>
+    </form>
+
+    <a href="{% url 'task-list' %}">Back to Task List</a>
+</body>
+</html>

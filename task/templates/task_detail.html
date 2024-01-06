@@ -1,0 +1,18 @@
+
+<html>
+<head>
+    <title>Task Detail</title>
+</head>
+<body>
+    <h1>Task Detail</h1>
+
+    <h2>{{ task.title }}</h2>
+    <p>Description: {{ task.description }}</p>
+    <p>Status: {% if task.completed %}Completed{% else %}Incomplete{% endif %}</p>
+    <p>Due Date: {{ task.due_date }}</p>
+
+    <a href="{% url 'task-list' %}">Back to Task List</a>
+    <a href="{% url 'task-update' task.id %}">Edit Task</a>
+    <a href="{% url 'task-delete' task.id %}">Delete Task</a>
+</body>
+</html>
